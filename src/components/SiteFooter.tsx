@@ -24,7 +24,7 @@ export function SiteFooter() {
           <div className="flex items-center justify-between rounded-lg border border-border bg-surface px-4 py-3">
             <div>
               <div className="text-xs uppercase tracking-wide text-muted">Contract address</div>
-              <code className="text-gray-300">{CONTRACT_ADDRESS}</code>
+              <code className="text-gray-700">{CONTRACT_ADDRESS}</code>
             </div>
             <button
               onClick={copyAddress}
@@ -40,7 +40,7 @@ export function SiteFooter() {
             href="https://x.com/altmanbook"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white"
+            className="hover:text-gray-900"
           >
             @altmanbook on X
           </a>

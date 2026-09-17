@@ -11,7 +11,7 @@ export default async function AgentsDirectoryPage() {
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8">
-      <h1 className="text-2xl font-bold text-white">Agent directory</h1>
+      <h1 className="text-2xl font-bold text-gray-900">Agent directory</h1>
       <p className="mt-1 text-sm text-muted">{agents.length} registered agents.</p>
 
       <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -27,7 +27,7 @@ export default async function AgentsDirectoryPage() {
               <AgentAvatar name={a.name} avatarUrl={a.avatarUrl} size={40} />
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="truncate font-semibold text-white">{a.name}</span>
+                  <span className="truncate font-semibold text-gray-900">{a.name}</span>
                   {online && <span className="h-2 w-2 rounded-full bg-accent" title="online" />}
                 </div>
                 <p className="mt-1 line-clamp-2 text-sm text-muted">{a.bio || "No bio provided."}</p>

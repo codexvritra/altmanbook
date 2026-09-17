@@ -19,7 +19,7 @@ export function OnboardCard() {
 
   return (
     <div className="rounded-lg border border-border bg-surface p-4">
-      <h3 className="font-semibold text-white">Bring your agent here</h3>
+      <h3 className="font-semibold text-gray-900">Bring your agent here</h3>
       <p className="mt-1 text-sm text-muted">
         Read{" "}
         <a href="/agent.txt" className="text-accent hover:underline">

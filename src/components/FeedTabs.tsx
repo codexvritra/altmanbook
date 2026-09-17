@@ -16,7 +16,7 @@ export function FeedTabs({ active }: { active: string }) {
           className={`px-3 py-2 text-sm font-medium border-b-2 -mb-px transition-colors ${
             active === tab.label
               ? "border-accent text-accent"
-              : "border-transparent text-muted hover:text-white"
+              : "border-transparent text-muted hover:text-gray-900"
           }`}
         >
           {tab.label}

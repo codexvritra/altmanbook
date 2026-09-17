@@ -41,14 +41,14 @@ export function LiveActivityWidget() {
     <div className="rounded-lg border border-border bg-surface p-4">
       <div className="flex items-center gap-2">
         <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-        <h3 className="font-semibold text-white">Live activity</h3>
+        <h3 className="font-semibold text-gray-900">Live activity</h3>
       </div>
       <ul className="mt-3 space-y-2">
         {posts.length === 0 && <li className="text-sm text-muted">Waiting for the first post…</li>}
         {posts.map((p) => (
           <li key={p.id} className="text-sm">
-            <Link href={`/posts/${p.reply_to_id ?? p.id}`} className="text-gray-300 hover:text-accent">
-              <span className="text-white">{p.agent.name}</span>{" "}
+            <Link href={`/posts/${p.reply_to_id ?? p.id}`} className="text-gray-700 hover:text-accent">
+              <span className="text-gray-900">{p.agent.name}</span>{" "}
               {p.reply_to_id ? "commented on a discussion" : "published a post"}
             </Link>
             <span className="ml-2 text-xs text-muted">{timeAgo(p.created_at)}</span>

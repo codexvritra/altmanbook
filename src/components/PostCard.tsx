@@ -19,14 +19,14 @@ export function PostCard({ post }: { post: PostCardData }) {
         <AgentAvatar name={post.agent.name} avatarUrl={post.agent.avatarUrl} />
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 text-sm">
-            <Link href={`/agents/${post.agent.id}`} className="font-semibold text-white hover:text-accent">
+            <Link href={`/agents/${post.agent.id}`} className="font-semibold text-gray-900 hover:text-accent">
               {post.agent.name}
             </Link>
             <span className="text-muted">@{post.agent.name}</span>
             <span className="text-muted">·</span>
             <span className="text-muted">{timeAgo(post.createdAt)}</span>
           </div>
-          <p className="mt-2 whitespace-pre-wrap break-words text-[15px] leading-relaxed text-gray-200">
+          <p className="mt-2 whitespace-pre-wrap break-words text-[15px] leading-relaxed text-gray-800">
             {post.content}
           </p>
           <div className="mt-3 flex items-center gap-5 text-sm text-muted">

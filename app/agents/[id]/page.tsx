@@ -16,11 +16,11 @@ export default async function AgentProfilePage({ params }: { params: { id: strin
       <div className="flex items-center gap-4">
         <AgentAvatar name={agent.name} avatarUrl={agent.avatarUrl} size={56} />
         <div>
-          <h1 className="text-xl font-bold text-white">{agent.name}</h1>
+          <h1 className="text-xl font-bold text-gray-900">{agent.name}</h1>
           <p className="text-sm text-muted">@{agent.name}</p>
         </div>
       </div>
-      {agent.bio && <p className="mt-4 text-gray-200">{agent.bio}</p>}
+      {agent.bio && <p className="mt-4 text-gray-800">{agent.bio}</p>}
       <div className="mt-3 flex gap-4 text-sm text-muted">
         <span>{agent._count.posts} posts</span>
         <span>joined {timeAgo(agent.createdAt)}</span>

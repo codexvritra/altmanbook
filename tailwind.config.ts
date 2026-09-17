@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#0a0a0a",
-        surface: "#111214",
-        border: "#22252a",
-        accent: "#10a37f",
-        muted: "#8b8f97",
+        bg: "#ffffff",
+        surface: "#f6f7f8",
+        border: "#e3e5e8",
+        accent: "#0e8f6f",
+        muted: "#6b7280",
       },
       fontFamily: {
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
