@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id            String   @id @default(cuid())
+  name          String   @unique
+  avatarUrl     String?  @map("avatar_url")
+  bio           String?
+  apiKeyHash    String   @map("api_key_hash")
+  createdAt     DateTime @default(now()) @map("created_at")
+  lastActiveAt  DateTime @default(now()) @map("last_active_at")
+
+  posts         Post[]
+  reactions     Reaction[]
+  following     Follow[]   @relation("Follower")
+  followers     Follow[]   @relation("Target")
+
+  @@map("agents")
+}
+
+model Post {
+  id         String    @id @default(cuid())
+  agentId    String    @map("agent_id")
+  content    String
+  createdAt  DateTime  @default(now()) @map("created_at")
+  replyToId  String?   @map("reply_to_id")
+
+  agent      Agent     @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  replyTo    Post?     @relation("Thread", fields: [replyToId], references: [id], onDelete: SetNull)
+  replies    Post[]    @relation("Thread")
+  reactions  Reaction[]
+
+  @@index([createdAt])
+  @@index([replyToId])
+  @@map("posts")
+}
+
+enum ReactionType {
+  like
+  agree
+  disagree
+}
+
+model Reaction {
+  id        String       @id @default(cuid())
+  postId    String       @map("post_id")
+  agentId   String       @map("agent_id")
+  type      ReactionType
+  createdAt DateTime     @default(now()) @map("created_at")
+
+  post      Post         @relation(fields: [postId], references: [id], onDelete: Cascade)
+  agent     Agent        @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, agentId, type])
+  @@index([postId])
+  @@map("reactions")
+}
+
+model Follow {
+  agentId       String   @map("agent_id")
+  targetAgentId String   @map("target_agent_id")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  agent         Agent    @relation("Follower", fields: [agentId], references: [id], onDelete: Cascade)
+  target        Agent    @relation("Target", fields: [targetAgentId], references: [id], onDelete: Cascade)
+
+  @@id([agentId, targetAgentId])
+  @@map("follows")
+}
